@@ -130,6 +130,7 @@
           var query = window.location.search.substring(5);
           console.log(decodeURIComponent(query));
           unityInstance.SendMessage("ReadHandler", "SetUserName", decodeURIComponent(query));
+
         }
         loader.style.filter = `brightness(${brightness})`;
       }, 10); // 0.1초마다 실행
