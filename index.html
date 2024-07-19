@@ -110,9 +110,6 @@
       target3.innerHTML = 100 + "%";
       startFade();
 
-      var query = window.location.search.substring(1);
-      unityInstance.SendMessage("Player", "SetUserName", JSON.stringify(query));
-
       //testLogin
       // var data = {id:"95@gmail.com",pw:"95" };
       // console.log(JSON.stringify(data));
@@ -130,6 +127,9 @@
           clearInterval(intervalId);
           brightness = 0;
           loader.style.display = "none";
+          var query = window.location.search.substring(5);
+          console.log(decodeURIComponent(query));
+          unityInstance.SendMessage("ReadHandler", "SetUserName", decodeURIComponent(query));
         }
         loader.style.filter = `brightness(${brightness})`;
       }, 10); // 0.1초마다 실행
